@@ -41,11 +41,19 @@ def display():
 
     fig.update_layout(yaxis_title="°C")
 
+    fig.update_layout(legend=dict(
+            orientation="h",
+            yanchor="bottom",
+            y=1.02,
+            xanchor="right",
+            x=1
+        ))
+
     fig.update_yaxes(title_text="Temp [°C]", secondary_y=False)
     fig.update_yaxes(title_text="Pluie [%]", secondary_y=True, range=[0, 100])
     fig.update_layout(xaxis=dict(showgrid=False),
                       yaxis=dict(showgrid=False))
 
-    st.markdown(f"## Météo à Rouen")
+    st.markdown(f"## Météo à Rouen 🌤")
     st.markdown(f'### Météo globale : **{weather}**')
     st.plotly_chart(fig, use_container_width=True)
