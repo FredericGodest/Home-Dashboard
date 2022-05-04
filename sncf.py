@@ -2,6 +2,7 @@ import pandas as pd
 from datetime import datetime
 import requests
 import streamlit as st
+from datetime import timedelta
 
 
 def convert_time(timestamp):
@@ -13,7 +14,7 @@ def convert_time(timestamp):
 
 
 def time_request_func():
-    now = datetime.now()
+    now = datetime.now() + timedelta(hours=2)
     month = f'{now.month:02d}'
     day = f'{now.day:02d}'
     hour = f'{now.hour:02d}'
