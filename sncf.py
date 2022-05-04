@@ -61,8 +61,9 @@ def display():
 
     df = pd.DataFrame(data=data_dict).drop_duplicates()
     df = df.set_index("Numéros de train")
+    df = df[["Heure de départ", "Programmé"]]
 
-    st.markdown(f"## Prochains trains pour Vernon 🚅")
+    st.markdown(f"## Prochains trains pour Vernon")
     st.dataframe(df)
 
 

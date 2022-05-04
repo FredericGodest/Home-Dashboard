@@ -5,6 +5,7 @@ import sncf
 import asyncio
 
 st.set_page_config(layout="wide")
+st.base="light"
 
 col1, col2 = st.columns(2)
 
