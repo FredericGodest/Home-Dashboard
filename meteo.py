@@ -54,6 +54,5 @@ def display():
     fig.update_layout(xaxis=dict(showgrid=False),
                       yaxis=dict(showgrid=False))
 
-    st.markdown(f"## Météo à Rouen")
-    st.markdown(f'### Météo globale : **{weather}**')
+    st.markdown(f'### Météo globale à Rouen: **{weather}**')
     st.plotly_chart(fig, use_container_width=True)
