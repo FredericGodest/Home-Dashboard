@@ -6,7 +6,7 @@ import asyncio
 from datetime import datetime
 
 def hours():
-    now = datetime.now()
+    now = datetime.now() + timedelta(hours=2)
     hour = f'{now.hour:02d}'
     minute = f'{now.minute:02d}'
     if hour < "06":
