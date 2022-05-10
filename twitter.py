@@ -22,7 +22,6 @@ def display(hashtag, test):
     else:
         data = data_test
 
-    st.markdown(f"## Tweets pour #{hashtag.capitalize()}")
-    st.markdown(f'### Meilleur tweet de : {data["best_account_name"]}')
+    st.markdown(f'### #{hashtag.capitalize()}: Meilleur tweet de : {data["best_account_name"]}')
     st.markdown(data["best_tweet"])
     st.markdown(f'**{data["best_RT"]} RT et {data["best_fav"]} fav**')
