@@ -19,7 +19,7 @@ def display():
     temperatures = [forecast.forecast[i]["T"]["value"] for i in range(hours)]
     weathers = [forecast.forecast[0]["weather"]["desc"] for i in range(hours)]
     weather = list(Counter(weathers).keys())[0]
-    rains = [forecast.forecast[0]["rain"]["1h"] for i in range(hours)]
+    rains = [forecast.forecast[i]["rain"]["1h"] for i in range(hours)]
 
     for i in range(hours):
         if rains[i] == 0:
