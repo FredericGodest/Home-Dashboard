@@ -54,6 +54,8 @@ def display():
             scheduled = json_res["departures"][i]["stop_date_time"]["data_freshness"]
             if scheduled == "base_schedule":
                 scheduled = "A l'heure"
+            else:
+                scheduled = "En retard"
 
             data_dict["Numéros de train"].append(train_number)
             data_dict["Directions"].append(direction)

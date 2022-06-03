@@ -9,7 +9,10 @@ def hours():
     now = datetime.now() + timedelta(hours=2)
     hour = f'{now.hour:02d}'
     minute = f'{now.minute:02d}'
-    st.markdown(f"### Bonsoir ! Il est {hour}:{minute}.")
+    if int(hour) < 18:
+        st.markdown(f"### Bonjour ! Il est {hour}:{minute}.")
+    else:
+        st.markdown(f"### Bonsoir ! Il est {hour}:{minute}.")
 
 
 st.set_page_config(layout="wide")

@@ -17,27 +17,31 @@ def display():
     timestamps = [forecast.forecast[i]["dt"] for i in range(hours)]
     time = [datetime.fromtimestamp(timestamp) for timestamp in timestamps]
     temperatures = [forecast.forecast[i]["T"]["value"] for i in range(hours)]
-    weathers = [forecast.forecast[0]["weather"]["desc"] for i in range(hours)]
-    weather = list(Counter(weathers).keys())[0]
+    weathers = [forecast.forecast[i]["weather"]["desc"] for i in range(hours)]
+    weather = max(weathers,key=weathers.count)
     rains = [forecast.forecast[i]["rain"]["1h"] for i in range(hours)]
 
     for i in range(hours):
         if rains[i] == 0:
             rains[i] = 1
+        else:
+            rains[i] = rains[i] * 100
 
     fig = make_subplots(specs=[[{"secondary_y": True}]])
 
     # Add traces
+    fig.add_trace(go.Bar(x=time, y=rains,
+                         marker_color='blue',
+                         opacity=0.5,
+                         name='pluie [%]'),
+                  secondary_y=True)
     fig.add_trace(go.Scatter(x=time, y=temperatures,
                              mode='lines',
                              name='température [°C]',
-                             marker_color='indianred',
+                             marker_color='red',
                              textposition="top center"),
                   secondary_y=False)
-    fig.add_trace(go.Bar(x=time, y=rains,
-                         marker_color='blue',
-                         name='pluie [%]'),
-                  secondary_y=True)
+
 
     fig.update_layout(yaxis_title="°C")
 
