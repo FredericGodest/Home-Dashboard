@@ -21,19 +21,13 @@ def display():
     weather = max(weathers,key=weathers.count)
     rains = [forecast.forecast[i]["rain"]["1h"] for i in range(hours)]
 
-    for i in range(hours):
-        if rains[i] == 0:
-            rains[i] = 1
-        else:
-            rains[i] = rains[i] * 100
-
     fig = make_subplots(specs=[[{"secondary_y": True}]])
 
     # Add traces
     fig.add_trace(go.Bar(x=time, y=rains,
                          marker_color='blue',
                          opacity=0.5,
-                         name='pluie [%]'),
+                         name='pluie [mm]'),
                   secondary_y=True)
     fig.add_trace(go.Scatter(x=time, y=temperatures,
                              mode='lines',
@@ -54,7 +48,7 @@ def display():
         ))
 
     fig.update_yaxes(title_text="Temp [°C]", secondary_y=False)
-    fig.update_yaxes(title_text="Pluie [%]", secondary_y=True, range=[0, 100])
+    fig.update_yaxes(title_text="Pluie [%]", secondary_y=True, range=[0, 10])
     fig.update_layout(xaxis=dict(showgrid=False),
                       yaxis=dict(showgrid=False))
 
