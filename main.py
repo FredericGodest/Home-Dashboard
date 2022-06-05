@@ -2,8 +2,8 @@ import streamlit as st
 import twitter
 import meteo
 import sncf
-import asyncio
 from datetime import datetime, timedelta
+
 
 def hours():
     now = datetime.now() + timedelta(hours=2)

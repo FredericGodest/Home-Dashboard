@@ -1,10 +1,9 @@
-import requests
 import meteofrance_api
 from datetime import datetime
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
-from collections import Counter
 import streamlit as st
+
 
 def display():
     latitude = 49.443232
@@ -18,7 +17,7 @@ def display():
     time = [datetime.fromtimestamp(timestamp) for timestamp in timestamps]
     temperatures = [forecast.forecast[i]["T"]["value"] for i in range(hours)]
     weathers = [forecast.forecast[i]["weather"]["desc"] for i in range(hours)]
-    weather = max(weathers,key=weathers.count)
+    weather = max(weathers, key=weathers.count)
     rains = [forecast.forecast[i]["rain"]["1h"] for i in range(hours)]
 
     fig = make_subplots(specs=[[{"secondary_y": True}]])
@@ -35,7 +34,6 @@ def display():
                              marker_color='red',
                              textposition="top center"),
                   secondary_y=False)
-
 
     fig.update_layout(yaxis_title="°C")
 

@@ -34,6 +34,7 @@ def get_data(time_request):
 
     return json_res, response_code
 
+
 def display():
     time_request = time_request_func()
     json_res, response_code = get_data(time_request)
@@ -68,12 +69,3 @@ def display():
 
     st.markdown(f"### Prochains trains pour Vernon")
     st.dataframe(df)
-
-
-
-
-
-
-
-
-
