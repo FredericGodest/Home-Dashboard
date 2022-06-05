@@ -35,8 +35,6 @@ def display():
                              textposition="top center"),
                   secondary_y=False)
 
-    fig.update_layout(yaxis_title="°C")
-
     fig.update_layout(legend=dict(
             orientation="h",
             yanchor="bottom",
@@ -46,7 +44,7 @@ def display():
         ))
 
     fig.update_yaxes(title_text="Temp [°C]", secondary_y=False)
-    fig.update_yaxes(title_text="Pluie [%]", secondary_y=True, range=[0, 10])
+    fig.update_yaxes(title_text="Pluie [mm]", secondary_y=True, range=[0, 10])
     fig.update_layout(xaxis=dict(showgrid=False),
                       yaxis=dict(showgrid=False))
 
